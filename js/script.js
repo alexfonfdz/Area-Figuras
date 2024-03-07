@@ -4,7 +4,9 @@ const figuras = {
     cuadrado: ['lado'],
     triangulo: ['base', 'altura'],
     rectangulo: ['base', 'altura'],
-    circulo: ['radio']
+    circulo: ['radio'],
+    trapecio: ["base mayor", "base menor", "altura"],
+    rombo: ["diagonal mayor", "diagonal menor"]
 };
 //Funcion para calcular el area de la figura correspondiente
 function calcularArea(figura, event, maxLength) {
@@ -18,6 +20,10 @@ function calcularArea(figura, event, maxLength) {
     let base = null;
     let altura = null;
     let radio = null;
+    let base_menor = null;
+    let base_mayor = null;
+    let diagonal_mayor = null;
+    let diagonal_menor = null;
     let resultado = document.getElementById("resultado");
     switch (figura) {
         case "cuadrado":
@@ -37,6 +43,18 @@ function calcularArea(figura, event, maxLength) {
             base = document.getElementById("base");
             altura = document.getElementById("altura");
             area = parseFloat(base.value) * parseFloat(altura.value);
+            break;
+        case "trapecio":
+            base_mayor = document.getElementById("base mayor");
+            base_menor = document.getElementById("base menor");
+            altura = document.getElementById("altura");
+            area = ((parseFloat(base_mayor.value) + parseFloat(base_menor.value)) * parseFloat(altura.value)) / 2;
+            4;
+            break;
+        case "rombo":
+            diagonal_mayor = document.getElementById("diagonal mayor");
+            diagonal_menor = document.getElementById("diagonal menor");
+            area = (parseFloat(diagonal_mayor.value) * parseFloat(diagonal_menor.value)) / 2;
             break;
         default:
             break;

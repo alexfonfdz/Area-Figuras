@@ -4,7 +4,9 @@ const figuras : Record<string, string[]> = {
     cuadrado: ['lado'],
     triangulo: ['base', 'altura'],
     rectangulo: ['base','altura'],
-    circulo: ['radio']
+    circulo: ['radio'],
+    trapecio: ["base mayor", "base menor", "altura"],
+    rombo: ["diagonal mayor", "diagonal menor"]
 }
 
 //Funcion para calcular el area de la figura correspondiente
@@ -20,6 +22,10 @@ function calcularArea(figura: string, event : Event, maxLength : number) {
     let base: HTMLInputElement | null = null;
     let altura: HTMLInputElement | null = null;
     let radio: HTMLInputElement | null = null;
+    let base_menor: HTMLInputElement | null = null;
+    let base_mayor: HTMLInputElement | null = null;
+    let diagonal_mayor: HTMLInputElement | null = null;
+    let diagonal_menor: HTMLInputElement | null = null;
     let resultado: HTMLHeadingElement = document.getElementById("resultado") as HTMLHeadingElement;
 
     switch (figura) {
@@ -40,6 +46,17 @@ function calcularArea(figura: string, event : Event, maxLength : number) {
             base = document.getElementById("base") as HTMLInputElement;
             altura = document.getElementById("altura") as HTMLInputElement;
             area = parseFloat(base.value) * parseFloat(altura.value);
+            break;
+        case "trapecio":
+            base_mayor = document.getElementById("base mayor") as HTMLInputElement;
+            base_menor = document.getElementById("base menor") as HTMLInputElement;
+            altura = document.getElementById("altura") as HTMLInputElement;
+            area = ((parseFloat(base_mayor.value) + parseFloat(base_menor.value))*parseFloat(altura.value))/2;4
+            break;
+        case "rombo":
+            diagonal_mayor = document.getElementById("diagonal mayor") as HTMLInputElement;
+            diagonal_menor = document.getElementById("diagonal menor") as HTMLInputElement;
+            area = (parseFloat(diagonal_mayor.value) * parseFloat(diagonal_menor.value))/2;
             break;
         default:
             
