@@ -114,7 +114,7 @@ function modalOption() {
 }
 //Funcion para cerrar el modal con un boton x o con la tecla escape
 function closeModal(event) {
-    var _a;
+    let _a;
     if ((event === null || event === void 0 ? void 0 : event.key) === "Escape" ||
         (event instanceof MouseEvent && ((_a = event.target) === null || _a === void 0 ? void 0 : _a.classList.contains("close")))) {
         const modal = document.getElementById("modal");
