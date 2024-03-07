@@ -26,7 +26,7 @@ function calcularArea(figura: string, event : Event, maxLength : number) {
     let base_mayor: HTMLInputElement | null = null;
     let diagonal_mayor: HTMLInputElement | null = null;
     let diagonal_menor: HTMLInputElement | null = null;
-    let resultado: HTMLHeadingElement = document.getElementById("resultado") as HTMLHeadingElement;
+    const resultado: HTMLHeadingElement = document.getElementById("resultado") as HTMLHeadingElement;
 
     switch (figura) {
         case "cuadrado":
@@ -99,8 +99,8 @@ function modalOption(){
         figura.addEventListener("click", () => {
             figuraValor = figura.getAttribute("value");
             
-            let modal : HTMLDivElement = document.getElementById("modal") as HTMLDivElement;
-            let modalContent : HTMLDivElement = document.getElementById("modal-content") as HTMLDivElement;
+            const modal : HTMLDivElement = document.getElementById("modal") as HTMLDivElement;
+            const modalContent : HTMLDivElement = document.getElementById("modal-content") as HTMLDivElement;
             let html  = "";
             if(figuraValor && figuras[figuraValor]){
                 html = `
