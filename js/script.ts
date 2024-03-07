@@ -42,7 +42,7 @@ function calcularArea(figura: string, event : Event, maxLength : number) {
             area = parseFloat(base.value) * parseFloat(altura.value);
             break;
         default:
-            console.log("Figura no encontrada");
+            
             break;
     }
     
@@ -81,7 +81,7 @@ function modalOption(){
     figurasHTML.forEach((figura) => {
         figura.addEventListener("click", () => {
             figuraValor = figura.getAttribute("value");
-            console.log(figuraValor);
+            
             let modal : HTMLDivElement = document.getElementById("modal") as HTMLDivElement;
             let modalContent : HTMLDivElement = document.getElementById("modal-content") as HTMLDivElement;
             let html  = "";
