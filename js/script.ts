@@ -51,7 +51,7 @@ function calcularArea(figura: string, event : Event, maxLength : number) {
             base_mayor = document.getElementById("base mayor") as HTMLInputElement;
             base_menor = document.getElementById("base menor") as HTMLInputElement;
             altura = document.getElementById("altura") as HTMLInputElement;
-            area = ((parseFloat(base_mayor.value) + parseFloat(base_menor.value))*parseFloat(altura.value))/2;4
+            area = ((parseFloat(base_mayor.value) + parseFloat(base_menor.value))*parseFloat(altura.value))/2;
             break;
         case "rombo":
             diagonal_mayor = document.getElementById("diagonal mayor") as HTMLInputElement;
