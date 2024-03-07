@@ -114,8 +114,10 @@ function modalOption() {
 }
 //Funcion para cerrar el modal con un boton x o con la tecla escape
 function closeModal(event) {
-    if ((event === null || event === void 0 ? void 0 : event.key) === "Escape" || (event === null || event === void 0 ? void 0 : event.target.classList.contains("close"))) {
-        let modal = document.getElementById("modal");
+    var _a;
+    if ((event === null || event === void 0 ? void 0 : event.key) === "Escape" ||
+        (event instanceof MouseEvent && ((_a = event.target) === null || _a === void 0 ? void 0 : _a.classList.contains("close")))) {
+        const modal = document.getElementById("modal");
         modal.style.display = "none";
     }
 }

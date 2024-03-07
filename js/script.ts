@@ -124,13 +124,14 @@ function modalOption(){
 
 
 //Funcion para cerrar el modal con un boton x o con la tecla escape
-function closeModal(event? : KeyboardEvent | MouseEvent | any | undefined) {
-    if (event?.key === "Escape" || event?.target.classList.contains("close")) {
-        let modal : HTMLDivElement = document.getElementById("modal") as HTMLDivElement;
-        modal.style.display = "none";
+function closeModal(event?: KeyboardEvent | MouseEvent) {
+    if ((event as KeyboardEvent)?.key === "Escape" ||
+      (event instanceof MouseEvent && (event.target as HTMLElement)?.classList.contains("close"))) {
+      const modal = document.getElementById("modal") as HTMLDivElement;
+      modal.style.display = "none";
     }
-
-}
+  }
+  
 
 //Eventos para abrir o cerrar el modal
 document.addEventListener("DOMContentLoaded", modalOption);
