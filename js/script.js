@@ -6,7 +6,9 @@ const figuras = {
     rectangulo: ['base', 'altura'],
     circulo: ['radio'],
     trapecio: ["base mayor", "base menor", "altura"],
-    rombo: ["diagonal mayor", "diagonal menor"]
+    rombo: ["diagonal mayor", "diagonal menor"],
+    heptagono: ["lado", "apotema"],
+    hexagono: ["lado", "apotema"]
 };
 //Funcion para calcular el area de la figura correspondiente
 function calcularArea(figura, event, maxLength) {
@@ -18,17 +20,19 @@ function calcularArea(figura, event, maxLength) {
     //Calcular el area de la figura correspondiente
     let area = 0;
     let base = null;
+    let lado = null;
     let altura = null;
     let radio = null;
     let base_menor = null;
     let base_mayor = null;
     let diagonal_mayor = null;
     let diagonal_menor = null;
+    let apotema = null;
     const resultado = document.getElementById("resultado");
     switch (figura) {
         case "cuadrado":
-            base = document.getElementById("lado");
-            area = Math.pow(parseFloat(base.value), 2);
+            lado = document.getElementById("lado");
+            area = Math.pow(parseFloat(lado.value), 2);
             break;
         case "circulo":
             radio = document.getElementById("radio");
@@ -54,6 +58,16 @@ function calcularArea(figura, event, maxLength) {
             diagonal_mayor = document.getElementById("diagonal mayor");
             diagonal_menor = document.getElementById("diagonal menor");
             area = (parseFloat(diagonal_mayor.value) * parseFloat(diagonal_menor.value)) / 2;
+            break;
+        case "heptagono":
+            lado = document.getElementById("lado");
+            apotema = document.getElementById("apotema");
+            area = (7 * parseFloat(lado.value) * parseFloat(apotema.value)) / 2;
+            break;
+        case "hexagono":
+            lado = document.getElementById("lado");
+            apotema = document.getElementById("apotema");
+            area = ((6 * parseFloat(lado.value)) * parseFloat(apotema.value)) / 2;
             break;
         default:
             break;
@@ -129,7 +143,7 @@ function modalOption() {
 }
 //Funcion para cerrar el modal con un boton x o con la tecla escape
 function closeModal(event) {
-    let _a;
+    var _a;
     if ((event === null || event === void 0 ? void 0 : event.key) === "Escape" ||
         (event instanceof MouseEvent && ((_a = event.target) === null || _a === void 0 ? void 0 : _a.classList.contains("close")))) {
         const modal = document.getElementById("modal");

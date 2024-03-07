@@ -6,7 +6,9 @@ const figuras : Record<string, string[]> = {
     rectangulo: ['base','altura'],
     circulo: ['radio'],
     trapecio: ["base mayor", "base menor", "altura"],
-    rombo: ["diagonal mayor", "diagonal menor"]
+    rombo: ["diagonal mayor", "diagonal menor"],
+    heptagono: ["lado", "apotema"],
+    hexagono: ["lado", "apotema"]
 }
 
 //Funcion para calcular el area de la figura correspondiente
@@ -20,18 +22,20 @@ function calcularArea(figura: string, event : Event, maxLength : number) {
     //Calcular el area de la figura correspondiente
     let area = 0;
     let base: HTMLInputElement | null = null;
+    let lado: HTMLInputElement | null = null;
     let altura: HTMLInputElement | null = null;
     let radio: HTMLInputElement | null = null;
     let base_menor: HTMLInputElement | null = null;
     let base_mayor: HTMLInputElement | null = null;
     let diagonal_mayor: HTMLInputElement | null = null;
     let diagonal_menor: HTMLInputElement | null = null;
+    let apotema: HTMLInputElement | null = null;
     const resultado: HTMLHeadingElement = document.getElementById("resultado") as HTMLHeadingElement;
 
     switch (figura) {
         case "cuadrado":
-            base = document.getElementById("lado") as HTMLInputElement;
-            area = Math.pow(parseFloat(base.value), 2);
+            lado = document.getElementById("lado") as HTMLInputElement;
+            area = Math.pow(parseFloat(lado.value), 2);
             break;
         case "circulo":
             radio = document.getElementById("radio") as HTMLInputElement;
@@ -57,6 +61,16 @@ function calcularArea(figura: string, event : Event, maxLength : number) {
             diagonal_mayor = document.getElementById("diagonal mayor") as HTMLInputElement;
             diagonal_menor = document.getElementById("diagonal menor") as HTMLInputElement;
             area = (parseFloat(diagonal_mayor.value) * parseFloat(diagonal_menor.value))/2;
+            break;
+        case "heptagono":
+            lado = document.getElementById("lado") as HTMLInputElement;
+            apotema = document.getElementById("apotema") as HTMLInputElement;
+            area = (7 * parseFloat(lado.value) * parseFloat(apotema.value))/2;
+            break;
+        case "hexagono":
+            lado = document.getElementById("lado") as HTMLInputElement;
+            apotema = document.getElementById("apotema") as HTMLInputElement;
+            area = ((6 *parseFloat(lado.value)) * parseFloat(apotema.value))/2;
             break;
         default:
             
