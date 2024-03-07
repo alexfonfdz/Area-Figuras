@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%);
 }
 
 
@@ -9,6 +10,7 @@ body {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    padding: 5px;
 }
 
 .figuras {
@@ -17,6 +19,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .figura {
@@ -24,7 +27,6 @@ body {
     width: calc(20%); 
     height: auto;
     transition: transform 0.3s;
-    margin-bottom: 5px;
 }
 
 @media (max-width: 720px) {
@@ -52,8 +54,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     z-index: 9999;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(0, 0, 0, 1) 100%);
 }
 
 .modal-content {
@@ -62,20 +64,32 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background-color: #fff;
+    background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(148, 148, 148) 100%);
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
     justify-content: center;
 }
 
 .modal-content input{
+    margin-top: 10px;
     margin-bottom: 10px;
-    width: 100%;
+    width: 95%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    color: rgb(35, 35, 35);
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgb(190, 190, 190) 100%);
 }
 
-.modal-content lablel{
-    margin-top: 150px;
+.modal-content input::placeholder{
+    color: rgba(133, 133, 133, 0.8);
+}
+
+.modal-content label{
+    margin-left: 1px;
 }
 
 .close {
@@ -83,7 +97,24 @@ body {
     top: 10px;
     right: 10px;
     cursor: pointer;
+    color: rgb(70, 69, 69);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(93, 93, 93, 0) 100%);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 1);
+    border-radius: 50%;
 }
+
+.close:hover{
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.742) 0%, rgba(93, 93, 93, 0.5) 100%);
+    color: rgba(0, 0, 0, 1);
+    transform: scale(1.2);
+}
+
+.close:active{
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, rgba(93, 93, 93, 0.5) 100%);
+    color: rgba(0, 0, 0, 1);
+    transform: scale(1.1);   
+}
+
 
 /* Estilo para ocultar las flechas en el input number */
 input[type="number"]::-webkit-inner-spin-button,

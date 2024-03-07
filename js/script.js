@@ -88,7 +88,7 @@ function modalOption() {
                 figuras[figuraValor].forEach((input) => {
                     html += `
                             <label for="${input}">${capitalize(input)}: </label>
-                                <input type="number" id="${input}" name="${input}" oninput="calcularArea('${figuraValor}', event, 8)" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189 && event.key !== ','" max="99999999">
+                                <input type="number" placeholder="${capitalize(input)}" id="${input}" name="${input}" oninput="calcularArea('${figuraValor}', event, 8)" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189 && event.key !== ','" max="99999999">
                                 <br/>
                             `;
                 });
