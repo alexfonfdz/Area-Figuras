@@ -63,7 +63,7 @@ function modalOption() {
     //Imprimir las figuras en el HTML
     const imprimirFigura = document.getElementById("figuras");
     for (const figura in figuras) {
-        if (figuras.hasOwnProperty(figura)) {
+        if (Object.prototype.hasOwnProperty.call(figuras, figura)) {
             imprimirFigura.innerHTML += `<img src="assets/img/${figura}.png" alt="${capitalize(figura)}" class="figura" value="${figura}">`;
         }
     }
