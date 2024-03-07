@@ -39,7 +39,6 @@ function calcularArea(figura, event, maxLength) {
             area = parseFloat(base.value) * parseFloat(altura.value);
             break;
         default:
-            
             break;
     }
     //Imprimir el resultado
@@ -73,7 +72,6 @@ function modalOption() {
     figurasHTML.forEach((figura) => {
         figura.addEventListener("click", () => {
             figuraValor = figura.getAttribute("value");
-            
             let modal = document.getElementById("modal");
             let modalContent = document.getElementById("modal-content");
             let html = "";
@@ -114,7 +112,7 @@ function modalOption() {
 }
 //Funcion para cerrar el modal con un boton x o con la tecla escape
 function closeModal(event) {
-    let _a;
+    var _a;
     if ((event === null || event === void 0 ? void 0 : event.key) === "Escape" ||
         (event instanceof MouseEvent && ((_a = event.target) === null || _a === void 0 ? void 0 : _a.classList.contains("close")))) {
         const modal = document.getElementById("modal");
