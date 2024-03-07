@@ -16,7 +16,7 @@ function calcularArea(figura: string, event : Event, maxLength : number) {
     }
 
     //Calcular el area de la figura correspondiente
-    let area: number = 0;
+    let area = 0;
     let base: HTMLInputElement | null = null;
     let altura: HTMLInputElement | null = null;
     let radio: HTMLInputElement | null = null;
@@ -84,7 +84,7 @@ function modalOption(){
             console.log(figuraValor);
             let modal : HTMLDivElement = document.getElementById("modal") as HTMLDivElement;
             let modalContent : HTMLDivElement = document.getElementById("modal-content") as HTMLDivElement;
-            let html : string = "";
+            let html  = "";
             if(figuraValor && figuras[figuraValor]){
                 html = `
                     <div class="modal-header">
