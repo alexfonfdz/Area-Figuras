@@ -85,7 +85,7 @@ const figurasHTML = document.getElementById("figuras");
 
 for (const figura in figuras) {
     if (Object.prototype.hasOwnProperty.call(figuras, figura)) {
-        figurasHTML.innerHTML += `<img src="assets/img/${figura}.png" alt="${capitalize(figura)}" class="figura" value="${figura}">`;
+        figurasHTML.innerHTML += `<img src="assets/img/${figura}.png" alt="${figura.charAt(0).toUpperCase() + s.slice(1)}" class="figura" value="${figura}">`;
     }
 }
 
@@ -108,14 +108,9 @@ function closeModal(event) {
   }
 }
 
-function capitalize(s) {
-  return s.charAt(0).toUpperCase() + s.slice(1);
-}
-
 // Exporta las funciones que deseas utilizar en las pruebas
 module.exports = {
   calcularArea,
   modalOption,
   closeModal,
-  capitalize,
 };

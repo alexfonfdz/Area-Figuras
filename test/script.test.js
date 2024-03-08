@@ -1,10 +1,6 @@
 // script.test.js
 
-const {
-    calcularArea,
-    modalOption,
-    closeModal,
-  } = require('../js/script1.js');
+import { calcularArea, modalOption, closeModal } from '../js/script1.js';
   
   // para el documento y los elementos HTML
   document.body.innerHTML = `
@@ -27,8 +23,6 @@ const {
     expect(result).toBe('9');
   });
   
-
-  
   // Pruebas para la función modalOption
   test('modalOption - Creación de Figuras HTML', () => {
     modalOption();
@@ -48,11 +42,5 @@ const {
     expect(modal.style.display).toBe("none");
   });
   
-  // Pruebas para la función capitalize
-/*   test('capitalize - Capitalización de palabra', () => {
-    const result = capitalize('palabra');
-    expect(result).toBe('Palabra');
-  });
-   */
 
   
