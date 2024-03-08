@@ -85,7 +85,7 @@ body {
 }
 
 .modal-content input::placeholder{
-    color: rgba(133, 133, 133, 0.8);
+    color: rgba(0, 0, 0, 0.548);
 }
 
 .modal-content label{
@@ -115,6 +115,26 @@ body {
     transform: scale(1.1);   
 }
 
+
+/* Estilos para input válido */
+input:valid {
+    border: 2px solid green;
+    background: lightgreen;
+  }
+  
+  /* Estilos para input inválido o requerido */
+  input:invalid {
+    border: 2px solid red;
+    animation: blink 1s infinite; /* Animación de parpadeo */
+  }
+  
+  /* Animación de parpadeo */
+  @keyframes blink {
+    50% {
+      border: 2px solid rgb(104, 49, 49);
+      background: radial-gradient(circle, rgba(252, 116, 116, 0.292) 0%, rgba(157, 32, 32, 0.489) 100%);
+    }
+  }
 
 /* Estilo para ocultar las flechas en el input number */
 input[type="number"]::-webkit-inner-spin-button,

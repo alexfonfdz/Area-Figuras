@@ -94,14 +94,13 @@ function calcularArea(figura: string, event : Event, maxLength : number) {
 function modalOption(){
 
     let figuraValor : string | null;
-    //Funcion para capitalizar la primera letra de una palabra
-    const capitalize = (s : string) => s.charAt(0).toUpperCase() + s.slice(1);
     
     //Imprimir las figuras en el HTML
     const imprimirFigura : HTMLDivElement | null = document.getElementById("figuras") as HTMLDivElement;
     for(const figura in figuras){
+        const figuraCapitalized = figura?.charAt(0).toUpperCase() + figura?.slice(1);
         if(Object.prototype.hasOwnProperty.call(figuras, figura)){
-            imprimirFigura.innerHTML += `<img src="assets/img/${figura}.png" alt="${capitalize(figura)}" class="figura" value="${figura}">`
+            imprimirFigura.innerHTML += `<img src="assets/img/${figura}.png" alt="${figuraCapitalized}" class="figura" value="${figura}">`
         }
     }
 
@@ -117,17 +116,19 @@ function modalOption(){
             const modalContent : HTMLDivElement = document.getElementById("modal-content") as HTMLDivElement;
             let html  = "";
             if(figuraValor && figuras[figuraValor]){
+                const figuraValorCapitlized = figuraValor.charAt(0).toUpperCase() + figuraValor.slice(1);
                 html = `
                     <div class="modal-header">
-                        <h2>Área de un ${capitalize(figuraValor)}</h2>
+                        <h2>Área de un ${figuraValorCapitlized}</h2>
                         <span><button class="close">&times;</button></span>
                         </div>
                         <div class="modal-body">
                         `;
                     figuras[figuraValor].forEach((input) => {
+                        const inputCapitalized = input.charAt(0).toUpperCase() + input.slice(1);
                         html +=`
-                            <label for="${input}">${capitalize(input)}: </label>
-                                <input type="number" placeholder="${capitalize(input)}" id="${input}" name="${input}" oninput="calcularArea('${figuraValor}', event, 8)" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189 && event.key !== ','" max="99999999">
+                            <label for="${input}">${inputCapitalized}: </label>
+                                <input type="number" placeholder="${inputCapitalized}" id="${input}" name="${input}" oninput="calcularArea('${figuraValor}', event, 8)" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189 && event.key !== ','" max="99999999" min="0.1" step="any" required>
                                 <br/>
                             `});
                         html += `

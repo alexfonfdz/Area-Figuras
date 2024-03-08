@@ -88,13 +88,12 @@ function calcularArea(figura, event, maxLength) {
 //Funcion para mostrar el modal con los inputs correspondientes
 function modalOption() {
     let figuraValor;
-    //Funcion para capitalizar la primera letra de una palabra
-    const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1);
     //Imprimir las figuras en el HTML
     const imprimirFigura = document.getElementById("figuras");
     for (const figura in figuras) {
+        const figuraCapitalized = (figura === null || figura === void 0 ? void 0 : figura.charAt(0).toUpperCase()) + (figura === null || figura === void 0 ? void 0 : figura.slice(1));
         if (Object.prototype.hasOwnProperty.call(figuras, figura)) {
-            imprimirFigura.innerHTML += `<img src="assets/img/${figura}.png" alt="${capitalize(figura)}" class="figura" value="${figura}">`;
+            imprimirFigura.innerHTML += `<img src="assets/img/${figura}.png" alt="${figuraCapitalized}" class="figura" value="${figura}">`;
         }
     }
     //Obtener las figuras y agregarles un evento click
@@ -107,17 +106,19 @@ function modalOption() {
             const modalContent = document.getElementById("modal-content");
             let html = "";
             if (figuraValor && figuras[figuraValor]) {
+                const figuraValorCapitlized = figuraValor.charAt(0).toUpperCase() + figuraValor.slice(1);
                 html = `
                     <div class="modal-header">
-                        <h2>Área de un ${capitalize(figuraValor)}</h2>
+                        <h2>Área de un ${figuraValorCapitlized}</h2>
                         <span><button class="close">&times;</button></span>
                         </div>
                         <div class="modal-body">
                         `;
                 figuras[figuraValor].forEach((input) => {
+                    const inputCapitalized = input.charAt(0).toUpperCase() + input.slice(1);
                     html += `
-                            <label for="${input}">${capitalize(input)}: </label>
-                                <input type="number" placeholder="${capitalize(input)}" id="${input}" name="${input}" oninput="calcularArea('${figuraValor}', event, 8)" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189 && event.key !== ','" max="99999999">
+                            <label for="${input}">${inputCapitalized}: </label>
+                                <input type="number" placeholder="${inputCapitalized}" id="${input}" name="${input}" oninput="calcularArea('${figuraValor}', event, 8)" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189 && event.key !== ','" max="99999999" min="0.1" step="any" required>
                                 <br/>
                             `;
                 });
