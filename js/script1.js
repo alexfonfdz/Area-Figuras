@@ -85,7 +85,7 @@ const figurasHTML = document.getElementById("figuras");
 
 for (const figura in figuras) {
     if (Object.prototype.hasOwnProperty.call(figuras, figura)) {
-        figurasHTML.innerHTML += `<img src="assets/img/${figura}.png" alt="${figura.charAt(0).toUpperCase() + s.slice(1)}" class="figura" value="${figura}">`;
+        figurasHTML.innerHTML += `<img src="assets/img/${figura}.png" alt="${figura.charAt(0).toUpperCase() + figura.slice(1)}" class="figura" value="${figura}">`;
     }
 }
 
